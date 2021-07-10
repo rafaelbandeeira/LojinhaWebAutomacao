@@ -3,19 +3,14 @@ package paginas;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class ListaProdutosPage {
-    private WebDriver browser;
+public class ListaProdutosPage extends BasePage {
 
     @FindBy(linkText = "ADICIONAR PRODUTO")
     private WebElement addProdutoBtn;
-    @FindBy(css = ".toast.rounded")
-    private WebElement mensagemToast;
 
     public ListaProdutosPage(WebDriver browser) {
-        this.browser = browser;
-        PageFactory.initElements(browser, this);
+        super(browser);
     }
 
     public NovoProdutoPage acessarPaginaNovoProduto() {
@@ -24,7 +19,7 @@ public class ListaProdutosPage {
         return new NovoProdutoPage(browser);
     }
 
-    public String capturarMensagem() {
-        return mensagemToast.getText();
+    public String lerMensagem() {
+        return capturarMensagem();
     }
 }

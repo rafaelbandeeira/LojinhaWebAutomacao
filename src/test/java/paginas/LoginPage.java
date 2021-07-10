@@ -3,11 +3,8 @@ package paginas;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
-    private WebDriver browser;
-
+public class LoginPage extends BasePage {
     @FindBy(id = "usuario")
     private WebElement usr;
     @FindBy(id = "senha")
@@ -16,8 +13,7 @@ public class LoginPage {
     private WebElement submitBtn;
 
     public LoginPage(WebDriver browser) {
-        this.browser = browser;
-        PageFactory.initElements(browser, this);
+        super(browser);
     }
 
     public LoginPage informarUsuario(String usuario) {

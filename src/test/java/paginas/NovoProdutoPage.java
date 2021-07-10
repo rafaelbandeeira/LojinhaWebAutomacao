@@ -3,11 +3,8 @@ package paginas;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-public class NovoProdutoPage {
-    private WebDriver browser;
-
+public class NovoProdutoPage extends BasePage {
     @FindBy(id = "produtonome")
     private WebElement nome;
     @FindBy(id = "produtovalor")
@@ -18,8 +15,7 @@ public class NovoProdutoPage {
     private WebElement submitBtn;
 
     public NovoProdutoPage(WebDriver browser) {
-        this.browser = browser;
-        PageFactory.initElements(browser, this);
+        super(browser);
     }
 
     public NovoProdutoPage informarNomeProduto(String produtoNome) {
@@ -40,15 +36,17 @@ public class NovoProdutoPage {
         return this;
     }
 
-    public ListaProdutosPage submeterNovoItemComErro() {
+    private void submeterNovoItem() {
         submitBtn.click();
+    }
 
+    public ListaProdutosPage submeterNovoItemComErro() {
+        submeterNovoItem();
         return new ListaProdutosPage(browser);
     }
 
     public EdicaoProdutoPage submeterNovoItemComSucesso() {
-        submitBtn.click();
-
+        submeterNovoItem();
         return new EdicaoProdutoPage(browser);
     }
 }

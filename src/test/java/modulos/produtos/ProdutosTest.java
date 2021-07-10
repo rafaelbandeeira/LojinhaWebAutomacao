@@ -36,7 +36,7 @@ public class ProdutosTest {
                 .informarValorProduto("000")
                 .informarCoresProduto("preto,azul")
                 .submeterNovoItemComErro()
-                .capturarMensagem();
+                .lerMensagem();
 
         Assertions.assertEquals(
                 "O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00",
@@ -55,7 +55,7 @@ public class ProdutosTest {
                 .informarValorProduto("700001")
                 .informarCoresProduto("rosa, prata")
                 .submeterNovoItemComErro()
-                .capturarMensagem();
+                .lerMensagem();
 
         Assertions.assertEquals(
                 "O valor do produto deve estar entre R$ 0,01 e R$ 7.000,00",
@@ -74,7 +74,7 @@ public class ProdutosTest {
                 .informarValorProduto("40000")
                 .informarCoresProduto("rosa, prata")
                 .submeterNovoItemComSucesso()
-                .capturarMensagem();
+                .lerMensagem();
 
         Assertions.assertEquals(
                 "Produto adicionado com sucesso",
@@ -93,7 +93,7 @@ public class ProdutosTest {
                 .informarValorProduto("700000")
                 .informarCoresProduto("rosa, prata")
                 .submeterNovoItemComSucesso()
-                .capturarMensagem();
+                .lerMensagem();
 
         Assertions.assertEquals(
                 "Produto adicionado com sucesso",
