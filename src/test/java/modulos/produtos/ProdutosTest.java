@@ -1,5 +1,6 @@
 package modulos.produtos;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,15 +14,12 @@ public class ProdutosTest {
 
     @BeforeEach
     public void beforeEach() {
-        System.setProperty("webdriver.chrome.driver", "/Users/rafaelds/drivers/chromedriver91/chromedriver");
+        WebDriverManager.chromedriver().setup();
         browser = new ChromeDriver();
-
         browser.manage().window().maximize();
-
         browser.manage()
                 .timeouts()
                 .implicitlyWait(Duration.ofSeconds(3));
-
         browser.get("http://165.227.93.41/lojinha-web/v2");
     }
 
